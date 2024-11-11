@@ -1,3 +1,6 @@
+#------------------------> Basic Settings <---------------------------------
+set -ag terminal-overrides ",$TERM:RGB"
+set -g default-terminal "tmux-256color"
 
 set -g prefix C-Space
 unbind C-b
@@ -9,8 +12,10 @@ set -g escape-time 0             # zero-out escape time delay
 set -g history-limit 1000000     # increase history size (from 2,000)
 set -g renumber-windows on       # renumber all windows when any window is closed
 set -g set-clipboard on          # use system clipboard
-set -g status-position top       # Status bar at the top
+set -g status-position top          # use system clipboard
 
+
+set-window-option -g window-status-format '#I #W'
 
 unbind %
 # bind | split-window -h
@@ -22,7 +27,6 @@ bind '-' split-window -v -c "#{pane_current_path}"
 unbind r
 bind r source-file ~/.config/tmux/tmux.conf
 
-
 bind -r j resize-pane -D 5
 bind -r k resize-pane -U 5
 bind -r l resize-pane -R 5
@@ -31,8 +35,12 @@ bind -r h resize-pane -L 5
 bind -r m resize-pane -Z
 
 set -g mouse on
-
+# set -g default-terminal "rxvt-unicode-256color"
 set -g default-terminal "tmux-256color"
+# set -g default-terminal "xterm-kitty-256color"
+# set -g default-terminal "xterm-256color"
+# set-option -g default-terminal "screen-256color"
+# set -g default-terminal "alacritty"
 
 set-window-option -g mode-keys vi
 
@@ -43,55 +51,40 @@ bind-key -T copy-mode-vi 'y' send -X copy-selection # copy text with "y"
 
 unbind -T copy-mode-vi MouseDragEnd1Pane # don't exit copy mode when dragging with mouse
 
-# Programs.
-bind -n M-m new-window -n "monitor" btop
-bind -n M-g new-window -c "#{pane_current_path}" -n "git" lazygit
-bind -n M-s new-window -c "#{pane_current_path}" -n "shell" fish
-bind -n M-f new-window -c "#{pane_current_path}" -n "files" yazi
-bind -n M-e new-window -c "#{pane_current_path}" -n "editor" "nvim ."
-bind -n M-c new-window -c "#{pane_current_path}" -n "calc" "kalker"
 
-# Message style.
-set -g message-style "fg=yellow,bg=black"
-set -g message-command-style "fg=yellow,bg=black"
-
-# Pane style.
-set -g pane-border-style 'fg=black'
-set -g pane-active-border-style "fg=black"
-set-window-option -g pane-border-status off
-
-# Status style.
-set -g status-style "fg=yellow,bg=black"
-set -g status-left "#[fg=cyan,bg=black]#[fg=black,bg=cyan] #{session_name}#[fg=cyan,bg=black]  "
-set -g status-right " #[fg=green,bg=black] #[fg=black,bg=green]󱫋 #{session_attached}#[fg=green,bg=black]"
-set -g status-left-length 100
-set -g status-position top
-set -g status-justify left
-
-# Window style.
-set -g window-status-style "fg=colour8,bg=black"
-set -g window-status-format "#[fg=default,bg=black] #[fg=default,bg=black]#W"
-set -g window-status-separator "  "
-set -g window-status-current-format "#[fg=cyan,bg=black] #[fg=cyan,bg=black]#W"
 #------------------------> Plugin Install <---------------------------------
 
-#TPM Install
 set -g @plugin 'tmux-plugins/tpm'
 
-#Utility Plugin
+set -g @plugin 'jimeh/tmux-themepack'
 set -g @plugin 'christoomey/vim-tmux-navigator'
+set -g @plugin 'tmux-plugins/tmux-sensible' 
+# set -g @plugin 'niksingh710/minimal-tmux-status'
+set -g @plugin 'omerxx/tmux-sessionx'
+# set -g @plugin 'catppuccin/tmux'
+set -g @plugin "janoamaral/tokyo-night-tmux"
 
-#Pane theme
-# set -g @plugin "janoamaral/tokyo-night-tmux"
-
+# set -g @plugin 'dracula/tmux'
 #------------------------> Tokyonight Plugin Setups <---------------------------------
 
-# set -g @tokyo-night-tmux_show_datetime 1
-# set -g @tokyo-night-tmux_time_format hide
-# set -g @tokyo-night-tmux_window_id_style fsquare
-# set -g @tokyo-night-tmux_pane_id_style hsquare
-# set -g @tokyo-night-tmux_zoom_id_style dsquare
-# set -g @tokyo-night-tmux_window-status-separator ""
+set -g @tokyo-night-tmux_show_datetime 1
+set -g @tokyo-night-tmux_time_format hide
+set -g @tokyo-night-tmux_window_id_style fsquare
+set -g @tokyo-night-tmux_pane_id_style hsquare
+set -g @tokyo-night-tmux_zoom_id_style dsquare
+
+#------------------------> Catppuccin Plugin Setups<---------------------------------
+# set -g @catppuccin_window_right_separator "█ "
+# set -g @catppuccin_window_number_position "right"
+# set -g @catppuccin_window_middle_separator " | "
+#
+# set -g @catppuccin_window_default_fill "none"
+#
+# set -g @catppuccin_window_current_fill "all"
+#
+# set -g @catppuccin_status_modules_right "application session"
+# set -g @catppuccin_status_left_separator "█"
+# set -g @catppuccin_status_right_separator "█"
 
 #------------------------> decide whether we're in a Vim process <---------------------------------
 # 
@@ -116,7 +109,9 @@ bind-key -T copy-mode-vi 'C-h' select-pane -L
 bind-key -T copy-mode-vi 'C-j' select-pane -D
 bind-key -T copy-mode-vi 'C-k' select-pane -U
 bind-key -T copy-mode-vi 'C-l' select-pane -R
+bind-key -T copy-mode-vi 'C-\' select-pane -l
 
 #------------------------> placed bottom for initialization of plugins <---------------------------------
 
+# run '~/.tmux/plugins/tpm/tpm'
 run '/usr/share/tmux-plugin-manager/tpm'

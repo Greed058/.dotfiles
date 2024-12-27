@@ -1,0 +1,208 @@
+{
+  "bar.customModules.updates.pollingInterval": 1440000,
+  "theme.bar.floating": true,
+  "theme.bar.outer_spacing": "0.3em",
+  "theme.font.size": "1em",
+  "theme.bar.buttons.radius": "1em",
+  "bar.workspaces.workspaces": 2,
+  "bar.workspaces.showWsIcons": true,
+  "bar.workspaces.scroll_speed": 2,
+  "theme.bar.buttons.windowtitle.enableBorder": false,
+  "bar.clock.format": "%I:%M:%S",
+  "bar.clock.icon": "󰥔",
+  "theme.bar.buttons.notifications.enableBorder": false,
+  "bar.notifications.show_total": true,
+  "bar.layouts": {
+    "0": {
+      "left": [
+        "dashboard",
+        "windowtitle",
+        "media",
+        "cpu",
+        "systray",
+        "updates"
+      ],
+      "middle": [
+        "workspaces"
+      ],
+      "right": [
+        "ram",
+        "volume",
+        "network",
+        "battery",
+        "clock",
+        "hypridle",
+        "notifications"
+      ]
+    },
+    "1": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
+    },
+    "2": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
+    }
+  },
+  "theme.font.name": "Google Sans",
+  "theme.font.weight": 500,
+  "theme.bar.transparent": false,
+  "theme.bar.opacity": 50,
+  "bar.workspaces.workspaceIconMap": {
+    "1": {
+      "icon": "",
+      "color": "#fab387"
+    },
+    "2": {
+      "icon": "󰄛",
+      "color": "#f9e2af"
+    },
+    "3": {
+      "icon": "",
+      "color": "#cba6f7"
+    },
+    "4": {
+      "icon": "",
+      "color": "#f38ba8"
+    },
+    "5": {
+      "icon": "",
+      "color": "yellow"
+    },
+    "6": {
+      "icon": "󰉋",
+      "color": "#94e2d5"
+    },
+    "7": {
+      "icon": "",
+      "color": "#a6e3a1"
+    },
+    "8": {
+      "icon": "󰓇",
+      "color": "lightgreen"
+    },
+    "9": {
+      "icon": "󰙯",
+      "color": "#89b4fa"
+    },
+    "10": {
+      "icon": "",
+      "color": "#a6adc8"
+    }
+  },
+  "theme.bar.buttons.workspaces.numbered_active_highlight_padding": "1em",
+  "theme.bar.buttons.workspaces.numbered_active_highlight_border": "0.8em",
+  "theme.bar.buttons.spacing": "0.25em",
+  "bar.workspaces.hideUnoccupied": true,
+  "scalingPriority": "gdk",
+  "bar.customModules.updates.updateCommand": "$HOME/.local/scripts/checkforupdates",
+  "bar.customModules.cpu.pollingInterval": 1100,
+  "theme.bar.buttons.workspaces.enableBorder": true,
+  "theme.bar.buttons.dashboard.enableBorder": false,
+  "theme.bar.buttons.workspaces.fontSize": "1.3em",
+  "bar.windowtitle.title_map": [
+    [
+      "armcord",
+      "",
+      "Armcord"
+    ],
+    [
+      "gjs",
+      "",
+      "Hyprpanel Settings"
+    ],
+    [
+      "zen-beta",
+      "󰰶",
+      "Zen Browser"
+    ],
+    [
+      "org.qbittorrent.qBittorrent",
+      "μ",
+      "qBitTorrent"
+    ],
+    [
+      "com.mitchellh.ghostty",
+      "󰊠",
+      "Ghostty"
+    ],
+    [
+      "jetbrains-idea-ce",
+      "",
+      "IntelliJ Idea"
+    ],
+    [
+      "YouTube Music",
+      "",
+      "YT Music"
+    ]
+  ],
+  "theme.bar.menus.menu.media.scaling": 97,
+  "theme.bar.menus.menu.notifications.scaling": 100,
+  "theme.bar.menus.menu.clock.scaling": 100,
+  "theme.bar.menus.menu.battery.scaling": 95,
+  "theme.bar.menus.menu.network.scaling": 97,
+  "theme.bar.menus.menu.volume.scaling": 96,
+  "theme.bar.buttons.padding_x": ".98rem",
+  "bar.battery.scrollUp": "brightnessctl set 1%+",
+  "bar.battery.scrollDown": "brightnessctl set 1%-",
+  "bar.workspaces.numbered_active_indicator": "highlight",
+  "bar.workspaces.spacing": 1.2,
+  "bar.workspaces.ignored": "-99",
+  "bar.customModules.ram.labelType": "percentage",
+  "theme.osd.scaling": 100,
+  "bar.launcher.icon": "󰊠",
+  "theme.bar.menus.menu.notifications.height": "69em",
+  "menus.media.noMediaText": "No Media Currently Playing",
+  "menus.media.displayTimeTooltip": false,
+  "notifications.displayedTotal": 10,
+  "menus.volume.raiseMaximumVolume": false,
+  "menus.clock.time.military": false,
+  "menus.clock.weather.location": "Los Angeles",
+  "theme.bar.border_radius": "4em",
+  "menus.dashboard.directories.right.directory1.label": "󱧶   Documents",
+  "menus.dashboard.directories.left.directory2.label": "󰉏   Videos",
+  "menus.dashboard.directories.left.directory1.label": "󰉍   Downloads",
+  "menus.dashboard.directories.right.directory2.label": "󰉏   Pictures",
+  "menus.dashboard.directories.right.directory3.label": "󱂵   Home",
+  "menus.dashboard.directories.left.directory3.label": "󰚝   Projects",
+  "notifications.position": "top",
+  "menus.media.hideAuthor": false,
+  "menus.media.hideAlbum": false,
+  "theme.bar.buttons.workspaces.pill.radius": "1.9rem * 0.6",
+  "theme.bar.buttons.workspaces.pill.height": "4em",
+  "theme.bar.buttons.workspaces.pill.active_width": "12em",
+  "theme.bar.buttons.workspaces.pill.width": "4em",
+  "bar.media.format": "{title}",
+  "bar.scrollSpeed": 0,
+  "bar.workspaces.applicationIconOncePerWorkspace": true,
+  "bar.workspaces.show_icons": false,
+  "bar.workspaces.showApplicationIcons": false,
+  "bar.windowtitle.icon": true,
+  "bar.windowtitle.truncation": true,
+  "bar.windowtitle.truncation_size": 25,
+  "bar.customModules.updates.icon.updated": "",
+  "bar.customModules.updates.icon.pending": ""
+}

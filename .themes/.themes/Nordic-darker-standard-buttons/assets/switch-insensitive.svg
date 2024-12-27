@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Gravit.io -->
+
+<svg
+   style="isolation:isolate"
+   viewBox="0 0 45 25"
+   width="45"
+   height="25"
+   version="1.1"
+   id="svg11496"
+   sodipodi:docname="switch-insensitive.svg"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs11500" />
+  <sodipodi:namedview
+     id="namedview11498"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="25.28"
+     inkscape:cx="30.85443"
+     inkscape:cy="12.89557"
+     inkscape:window-width="2560"
+     inkscape:window-height="1372"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg11496" />
+  <path
+     id="rect27178"
+     style="isolation:isolate;fill:#363c4b;fill-opacity:1;stroke:#3b4252;stroke-width:0.989202;stroke-dasharray:none;stroke-opacity:1"
+     d="m 10.763787,1.9946008 h 23.472425 c 5.68913,0 10.269187,4.685408 10.269187,10.5053992 0,5.819991 -4.580057,10.505399 -10.269187,10.505399 H 10.763787 C 5.074658,23.005399 0.494601,18.319991 0.494601,12.5 c 0,-5.8199912 4.580057,-10.5053992 10.269186,-10.5053992 z" />
+</svg>

@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 1 ]]; then
+  selected=$1
+else
+  selected=$(find ~/.config/ ~/dots-x11/ ~/Dev/ ~/Dev/programming/* ~/Dev/hobby/ ~/.config/nvim/ -mindepth 1 -maxdepth 1 -type d | fzf --prompt="Find project 󰁕 " --height=~50% --layout=reverse --border --exit-0)
+fi
+
+if [[ -z $selected ]]; then
+  exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+tmux_running=$(pgrep tmux)
+
+# Function to set up the session
+setup_session() {
+  local session=$1
+  local dir=$2
+
+  # Create the session
+  tmux new-session -ds "$session" -c "$dir"
+
+  # Window 1: Open the `dashboard.py` file in `nvim`
+  tmux rename-window -t "$session:0" "Editor"
+  tmux send-keys -t "$session:0" "source tracker-venv/bin/activate.fish && nvim tracker_app/views/dashboard.py" C-m
+
+  # Window 2: Split vertical panes for `runserver` and `tailwind start`
+  tmux new-window -t "$session" -n "Server" -c "$dir"
+  tmux send-keys -t "$session:1.0" "source tracker-venv/bin/activate.fish && python manage.py runserver" C-m
+  tmux split-window -h -t "$session:1" -c "$dir"
+  tmux send-keys -t "$session:1.1" "source tracker-venv/bin/activate.fish && python manage.py tailwind start" C-m
+}
+
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+  setup_session "$selected_name" "$selected"
+  tmux attach -t "$selected_name"
+  exit 0
+fi
+
+if ! tmux has-session -t=$selected_name 2>/dev/null; then
+  setup_session "$selected_name" "$selected"
+fi
+
+if [[ -z $TMUX ]]; then
+  tmux attach -t $selected_name
+else
+  tmux switch-client -t $selected_name
+fi

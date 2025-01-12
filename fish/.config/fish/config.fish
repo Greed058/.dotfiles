@@ -1,28 +1,29 @@
 #--------------------------------------> Bang Bang command <--------------------------------------
 function __history_previous_command
-  switch (commandline -t)
-  case "!"
-    commandline -t $history[1]; commandline -f repaint
-  case "*"
-    commandline -i !
-  end
+    switch (commandline -t)
+        case "!"
+            commandline -t $history[1]
+            commandline -f repaint
+        case "*"
+            commandline -i !
+    end
 end
 
 function __history_previous_command_arguments
-  switch (commandline -t)
-  case "!"
-    commandline -t ""
-    commandline -f history-token-search-backward
-  case "*"
-    commandline -i '$'
-  end
+    switch (commandline -t)
+        case "!"
+            commandline -t ""
+            commandline -f history-token-search-backward
+        case "*"
+            commandline -i '$'
+    end
 end
 bind ! __history_previous_command
 bind '$' __history_previous_command_arguments
 #--------------------------------------> End of bang bang <--------------------------------------
 
 function postexec_test --on-event fish_postexec
-   echo
+    echo
 end
 
 #--------------------------------------> Greeting <--------------------------------------
@@ -47,29 +48,30 @@ function chad
 end
 
 function kvim
-  env NVIM_APPNAME=nvim.bak nvim
+    env NVIM_APPNAME=nvim-kick nvim
 end
 
- function nvims
-     set items astronvim nvchad lvim kvim
-     set config (printf "%s\n" $items | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
-     if [ -z $config ]
-         echo "Nothing selected"
-         return 0
-     else if [ $config = "default" ]
-         set config ""
-     end
-     env NVIM_APPNAME=$config nvim $argv
- end
+function nvims
+    set items astronvim nvchad lvim kvim
+    set config (printf "%s\n" $items | fzf --prompt=" Neovim Config = " --height=~50% --layout=reverse --border --exit-0)
+    if [ -z $config ]
+        echo "Nothing selected"
+        return 0
+    else if [ $config = default ]
+        set config ""
+    end
+    env NVIM_APPNAME=$config nvim $argv
+end
 
-bind \ca 'nvims'
+bind \ca nvims
 
 #--------------------------------------> Alias for direcotry <--------------------------------------
 
 alias ls "eza --icons --git --group-directories-first"
 alias la "eza -a --icons --git --group-directories-first"
-alias lt "eza -lah --icons --color  --no-user --git -T -L 3 --ignore-glob=".git" --group-directories-first" 
-alias lf "yazi"
+alias lt "eza -lah --icons --color  --no-user --git -T -L 3 --ignore-glob=".git" --group-directories-first"
+alias lf yazi
+alias rm trash
 #alias lt "eza -lah --color automatic -T -L 2 --git --icons --group-directories-first --no-user" 
 
 #--------------------------------------> userful alias <--------------------------------------
@@ -81,12 +83,12 @@ alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
 alias ..... "cd ../../../.."
-alias e "thunar"
-alias x "exit"
-alias lg "lazygit"
-abbr rt "trash"
+alias e thunar
+alias x exit
+alias lg lazygit
+abbr rt trash
 alias vi "NVIM_APPNAME=vanvim nvim"
-alias nvd "neovide"
+alias nvd neovide
 alias hvd "env -u WAYLAND_DISPLAY neovide --multigrid"
 alias ffetch "fastfetch --config ~/.config/fastfetch/22.jsonc"
 
@@ -116,7 +118,8 @@ alias tas "tmux attach -t"
 alias tls "tmux list-sessions"
 alias tds "tmux detach"
 
-bind \cf "tmux-sessionizer"
+bind \cf tmux-sessionizer
+bind \cr sessionizer-panes
 
 #--------------------------------------> PATH <--------------------------------------
 
@@ -170,6 +173,6 @@ set PATH "$PATH":"$HOME/Android_Stuff/SDK/platform-tools"
 # pnpm
 set -gx PNPM_HOME "/home/greed/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
